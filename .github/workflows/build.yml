@@ -15,9 +15,9 @@ jobs:
          - os: ubuntu-latest
            prometheus_artifact_name: prometheus
            prometheus_asset_name: prometheus-linux-amd64
-#         - os: windows-latest
-#           prometheus_artifact_name: prometheus.exe
-#           prometheus_asset_name: prometheus-windows-amd64.exe
+         - os: windows-latest
+           prometheus_artifact_name: prometheus.exe
+           prometheus_asset_name: prometheus-windows-amd64.exe
          - os: macos-latest
            prometheus_artifact_name: prometheus
            prometheus_asset_name: prometheus-macos-amd64
