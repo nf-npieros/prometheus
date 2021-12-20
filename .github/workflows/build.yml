@@ -39,7 +39,7 @@ jobs:
       run: go build -o ${{ runner.workspace }}/build/${{ matrix.prometheus_artifact_name }} ./cmd/prometheus/main.go
       
     - name: make dir to tar
-      run: mkdir ${{ runner.workspace }}/${{ matrix.prometheus_artifact_name }}
+      run: mkdir ${{ runner.workspace }}/${{ matrix.prometheus_asset_name }}
       
     - name: move binary
       run: mv ${{ runner.workspace }}/build/${{ matrix._artifact_name }} ${{ runner.workspace }}/${{ matrix.prometheus_artifact_name }}/.
