@@ -54,6 +54,6 @@ jobs:
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: ${{ runner.workspace }}/build/${{ matrix.prometheus_artifact_name }}
+        file: ${{ runner.workspace }}/build
         asset_name: ${{ matrix.prometheus_asset_name }}
         tag: ${{ github.ref }}
