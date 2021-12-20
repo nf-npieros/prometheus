@@ -36,7 +36,7 @@ jobs:
       run: make assets
       
     - name: Build
-      run: go build -o ${{ runner.workspace }}/build ./...
+      run: go build -o ${{ runner.workspace }}/build ./cmd/prometheus/main.go
       
     - name: make dir to tar
       run: mkdir ${{ runner.workspace }}/{{ matrix.helm_artifact_name }}
