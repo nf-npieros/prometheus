@@ -42,7 +42,7 @@ jobs:
       run: mkdir ${{ runner.workspace }}/${{ matrix.prometheus_asset_name }}
       
     - name: move binary
-      run: mv ${{ runner.workspace }}/build/${{ matrix._artifact_name }} ${{ runner.workspace }}/${{ matrix.prometheus_artifact_name }}/.
+      run: mv ${{ runner.workspace }}/build/${{ matrix._artifact_name }} ${{ runner.workspace }}/${{ matrix.prometheus_asset_name }}/.
       
     - name: copy web
       run: cp -r ./web ${{ runner.workspace }}/${{ matrix.prometheus_asset_name }}/.
@@ -54,6 +54,6 @@ jobs:
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: ${{ runner.workspace }}/build
+        file: ${{ runner.workspace }}/${{ matrix.prometheus_asset_name }}
         asset_name: ${{ matrix.prometheus_asset_name }}
         tag: ${{ github.ref }}
