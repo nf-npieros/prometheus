@@ -48,7 +48,7 @@ jobs:
       run: cp -r ./web ${{ runner.workspace }}/${{ matrix.prometheus_asset_name }}/.
     
     - name: tar
-      run: tar -zcvf $${{ runner.workspace }}/${{ matrix.prometheus_asset_name }}.tar.gz ${{ runner.workspace }}/${{ matrix.prometheus_asset_name }}
+      run: tar -zcvf ${{ runner.workspace }}/${{ matrix.prometheus_asset_name }}.tar.gz ${{ runner.workspace }}/${{ matrix.prometheus_asset_name }}
       
     - name: Upload prometheus binaries to release
       uses: svenstaro/upload-release-action@v2
