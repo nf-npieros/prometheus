@@ -39,21 +39,21 @@ jobs:
       run: go build -o ${{ runner.workspace }}/build/${{ matrix.prometheus_artifact_name }} ./cmd/prometheus/main.go
       
     - name: make dir to tar
-      run: mkdir ${{ runner.workspace }}/${{ matrix.prometheus_asset_name }}
+      run: mkdir ${{ matrix.prometheus_asset_name }}
       
     - name: move binary
-      run: mv ${{ runner.workspace }}/build/${{ matrix._artifact_name }} ${{ runner.workspace }}/${{ matrix.prometheus_asset_name }}/.
+      run: cp ${{ runner.workspace }}/build/${{ matrix._artifact_name }} ${{ matrix.prometheus_asset_name }}/.
       
     - name: copy web
-      run: cp -r ./web ${{ runner.workspace }}/${{ matrix.prometheus_asset_name }}/.
+      run: cp -r ./web ${{ matrix.prometheus_asset_name }}/.
     
     - name: tar
-      run: tar -zcvf ${{ runner.workspace }}/${{ matrix.prometheus_asset_name }}.tar.gz ${{ runner.workspace }}/${{ matrix.prometheus_asset_name }}
+      run: tar -zcvf ${{ matrix.prometheus_asset_name }}.tar.gz ${{ matrix.prometheus_asset_name }}
       
     - name: Upload prometheus binaries to release
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: ${{ runner.workspace }}/${{ matrix.prometheus_asset_name }}.tar.gz
+        file: ${{ matrix.prometheus_asset_name }}.tar.gz
         asset_name: ${{ matrix.prometheus_asset_name }}.tar.gz
         tag: ${{ github.ref }}
