@@ -45,7 +45,7 @@ jobs:
       run: cp ${{ runner.workspace }}/build/${{ matrix.prometheus_artifact_name }} ${{ matrix.prometheus_asset_name }}/.
       
     - name: copy web
-      run: cp -r ./web/ui/.* ${{ matrix.prometheus_asset_name }}/.
+      run: cp -r ./web/ui/. ${{ matrix.prometheus_asset_name }}/.
     
     - name: tar
       run: tar -zcvf ${{ matrix.prometheus_asset_name }}.tar.gz ${{ matrix.prometheus_asset_name }}
