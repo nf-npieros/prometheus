@@ -42,7 +42,7 @@ jobs:
       run: mkdir ${{ matrix.prometheus_asset_name }}
       
     - name: move binary
-      run: cp ${{ runner.workspace }}/build/${{ matrix._artifact_name }} ${{ matrix.prometheus_asset_name }}/.
+      run: cp ${{ runner.workspace }}/build/${{ matrix.prometheus_artifact_name }} ${{ matrix.prometheus_asset_name }}/.
       
     - name: copy web
       run: cp -r ./web ${{ matrix.prometheus_asset_name }}/.
